@@ -84,6 +84,9 @@ namespace :generate do
 end
 
 namespace :db do
+  desc "Drop, create, and migrate the database"
+  task :reset => [:drop, :create, :migrate, :"test:prepare", :seed]
+
   desc "Create the database at #{DB_NAME} and at #{APP_NAME}_test"
   task :create do
     puts "Creating database #{DB_NAME} and #{APP_NAME}_test if it doesn't exist..."
