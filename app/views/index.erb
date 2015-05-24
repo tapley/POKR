@@ -1,23 +1,22 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<form action="/" method="POST">
+<% if session[:email]%>
+<table id="content">
+  <% @objectives.each_with_index do |objective, index|%>
+    <tr><td class="objective_list"><%= objective.description %></td></tr>
+    <% @keyresults[index].each do |keyresult|%>
+      <tr><td><input class="keyresult_input" name="<% keyresult.id %>" type="text" value="<%= keyresult.number %>" ></input><%= keyresult.unit %> <%= keyresult.action %></td></tr>
+    <% end %>
+  <% end %>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
-</div>
+<% else %>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce quis mauris ultrices, pharetra est consectetur, pellentesque urna. Aliquam quis dignissim nisi, ac aliquet nunc. Sed turpis leo, porta et tortor hendrerit, bibendum ultricies odio. Maecenas convallis urna non vestibulum bibendum. Maecenas in mi sit amet neque dictum tristique eget sit amet lacus. Quisque ac odio id lacus venenatis fermentum. Nullam rhoncus eleifend ligula non ullamcorper. Integer gravida eleifend egestas. Mauris condimentum neque sit amet dolor iaculis, ac consectetur quam blandit. Nunc auctor nisl eu varius sodales. Donec dignissim dignissim molestie. Suspendisse sit amet tortor libero. Nam viverra scelerisque tortor, at vehicula velit viverra varius. In dolor metus, iaculis vel mi ut, condimentum sodales mauris. Suspendisse at imperdiet velit.
+<% end %>
+<tr><td><input id="homepage_submit" type="submit" value="Update POKRs" ></tr></td>
+</table>
+</form>
+<% %>
+<% %>
+<% %>
+
+
+

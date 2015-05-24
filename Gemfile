@@ -18,8 +18,10 @@ gem 'rake'
 
 gem 'shotgun'
 
+gem 'bcrypt'
+
 group :test do
-  gem 'faker'
+  gem 'faker', '~>1.4.3'
   gem 'rspec'
   gem 'rack-test'
   gem 'capybara'

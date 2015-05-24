@@ -1,0 +1,8 @@
+<div id="header">
+  <div id="header_left"><a href="/">POKR</a></div><div id="header_right">
+  <% if session[:email] %>
+    <a href="/settings">Settings</a> | <a href="/logout">Log out</a></div>
+  <% else %>
+    <a href="/login">Log in</a> | <a href="/register">Register</a></div>
+  <% end %>
+</div>
