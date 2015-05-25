@@ -3,7 +3,9 @@ require 'faker'
 5.times do
   user = User.create(
     name: Faker::Name.name,
-    email: Faker::Internet.email
+    email: Faker::Internet.email,
+    update_frequency: rand(1..7),
+    alternate_homepage: "https://www.google.com"
   )
   user.password = "1234"
   user.save!

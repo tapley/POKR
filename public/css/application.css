@@ -186,13 +186,13 @@ textarea:focus, input:focus {
   border: none;
   border-bottom: solid;
   border-bottom-width: 1px;
-  width: 100px;
+  width: 200px;
 }
 .keyresult_action_input {
   border: none;
   border-bottom: solid;
   border-bottom-width: 1px;
-  width: 670px;
+  width: 570px;
 }
 .keyresult_delete {
   border: none;
@@ -217,17 +217,12 @@ textarea:focus, input:focus {
 
 select {
   background: none;
-  border:2px solid #000000;
-  border-radius: 0px;
+  border: none;
+  outline: 2px inset black;
+  outline-offset:-1px;
   margin-top: 15px;
   margin-bottom: 15px;
-  color: #ED483E;
 }
-
-
-
-
-
 
 
 

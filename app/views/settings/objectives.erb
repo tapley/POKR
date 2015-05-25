@@ -1,5 +1,5 @@
-
-<div class="title">Update objectives</div>
+<div class="content">
+<div class="title">Update objectives <div class="add"><a href='/settings/objectives/new'>Add</a></div></div>
 <% if @error_message %> <div><%= @error_message %></div></br> <% end %>
 <form action="/settings/objectives" method="POST">
   <% @objectives.each do |objective|%>
@@ -10,3 +10,4 @@
   <input type="hidden" name="_method" value="put"/>
   <input class="submit" type="submit" value="Update objectives">
 </form>
+</div>

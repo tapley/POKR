@@ -29,7 +29,7 @@ get '/register' do
 end
 
 post '/register' do
-  user = User.new(name: params[:name], email: params[:email])
+  user = User.new(name: params[:name], email: params[:email], update_frequency: params[:update_frequency])
   user.password = params[:password]
   begin
     if user.save!

@@ -15,7 +15,7 @@ put '/settings/profile' do
   @user = User.find_by(email: session[:email])
 
   begin
-    if @user.update(name: params[:name], email: params[:email])
+    if @user.update(name: params[:name], email: params[:email], update_frequency: params[:update_frequency])
       session[:email] = @user.email
       @user.password = params[:password]
       redirect '/settings'
@@ -92,5 +92,29 @@ get '/settings/keyresults/new' do
   user = User.find_by(email: session[:email])
   @objectives = Objective.where(user_id: user.id).order(:id)
   erb :'settings/new_keyresult'
+end
+
+
+post '/settings/keyresults/new' do
+  p params
+  Keyresult.create(
+    objective_id: params[:objective_id],
+    number: 0,
+    goal: params[:goal],
+    unit: params[:unit],
+    action: params[:action]
+  )
+
+  redirect 'settings/keyresults'
+end
+
+get '/settings/objectives/new' do
+  erb :'settings/new_objective'
+end
+
+post '/settings/objectives/new' do
+  user = User.find_by(email: session[:email])
+  Objective.create(user_id: user.id, description: params[:description], due: params[:due])
+  redirect '/settings/objectives'
 end
 

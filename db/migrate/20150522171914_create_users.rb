@@ -4,6 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :password_hash
       t.string :email
+      t.integer :update_frequency
+      t.string :alternate_homepage
 
       t.timestamps
     end

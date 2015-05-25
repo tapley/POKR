@@ -5,7 +5,7 @@ get '/' do
 
     user = User.find_by(email: session[:email])
 
-    @objectives = Objective.where(user_id: user.id).order(:id)
+    @objectives = Objective.where(user_id: user.id).order(due: :desc)
 
     @keyresults = []
     @objectives.each do |objective|

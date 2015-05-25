@@ -4,6 +4,9 @@
   Name: <input  class="settings_input" name="name" type="text" value="<%= @user.name %>"></br>
   Email: <input  class="settings_input" name="email" type="text" value="<%= @user.email %>"></br>
   Password: <input  class="settings_input" name="password" type="password"></br>
+  Update frequency: <input  class="settings_input" name="update_frequency" type="text" value="<%= @user.update_frequency%>"></br>
+  Alternate homepage: <input  class="settings_input" name="alternate_homepage" type="text" value="<%= @user.alternate_homepage%>"></br>
+
   <input type="hidden" name="_method" value="put"/>
   <input class="submit" type="submit" value="Update user">
 </form>
