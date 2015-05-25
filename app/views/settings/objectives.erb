@@ -1,0 +1,12 @@
+
+<div class="title">Update objectives</div>
+<% if @error_message %> <div><%= @error_message %></div></br> <% end %>
+<form action="/settings/objectives" method="POST">
+  <% @objectives.each do |objective|%>
+    <input class="objectives_description_input"  type="text" name="<%= objective.id%>[description]" value="<%= objective.description%>">
+    <input class="objectives_due_input"  type="date" name="<%= objective.id%>[due]" value="<%= objective.due%>">
+    <a href='/settings/objectives/delete?objective=<%=objective.id%>'>X</a> </br>
+  <% end %>
+  <input type="hidden" name="_method" value="put"/>
+  <input class="submit" type="submit" value="Update objectives">
+</form>

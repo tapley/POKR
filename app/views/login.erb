@@ -1,5 +1,6 @@
 <form action="/login" method="POST">
-  Email: <input name="email" type="text"></br>
-  Password: <input name="password" type="password"></br>
-  <input type="submit" value="Create User">
+  <% if @error_message %> <div><%= @error_message %></div></br> <% end %>
+  Email: <input class="settings_input" name="email" type="text"></br>
+  Password: <input class="settings_input" name="password" type="password"></br>
+  <input class="submit" type="submit" value="Log in">
 </form>

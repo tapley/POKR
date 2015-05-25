@@ -1,0 +1,20 @@
+<form action="/settings/keyresults" method="POST">
+
+  <table id="content">
+      <tr><td class="title">Update key results <div class="add"><a href='/settings/keyresults/new'>Add</a></div></td></tr>
+    <% if @error_message %> <tr><td><%= @error_message %></td></tr></br> <% end %>
+    <% @objectives.each_with_index do |objective, index|%>
+      <tr><td class="objective_description"><%= objective.description %><div class="objective_date"><%= objective.due.strftime('%b %e, %Y') %></div></td></tr>
+      <% @keyresults[index].each do |keyresult|%>
+        <tr><td>
+          <input class="keyresult_goal_input" name="<%= keyresult.id %>[goal]" type="text" value="<%= keyresult.goal %>" >
+          <input class="keyresult_unit_input" name="<%= keyresult.id %>[unit]" type="text" value="<%= keyresult.unit %>" >
+          <input class="keyresult_action_input" name="<%= keyresult.id %>[action]" type="text" value="<%= keyresult.action %>"> <a href='/settings/keyresults/delete?keyresult=<%=keyresult.id%>'>X</a>
+        </td></tr>
+      <% end %>
+      <tr><td> &nbsp; </td></tr>
+    <% end %>
+    <input type="hidden" name="_method" value="put"/>
+    <tr><td><input id="homepage_submit" type="submit" value="Update key results" ></tr></td>
+  </table>
+</form>

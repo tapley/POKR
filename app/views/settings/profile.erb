@@ -1,0 +1,9 @@
+<div class="title">Profile Settings</div>
+<% if @error_message %> <div><%= @error_message %></div></br> <% end %>
+<form action="/settings/profile" method="POST">
+  Name: <input  class="settings_input" name="name" type="text" value="<%= @user.name %>"></br>
+  Email: <input  class="settings_input" name="email" type="text" value="<%= @user.email %>"></br>
+  Password: <input  class="settings_input" name="password" type="password"></br>
+  <input type="hidden" name="_method" value="put"/>
+  <input class="submit" type="submit" value="Update user">
+</form>

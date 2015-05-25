@@ -3,6 +3,7 @@ class CreateKeyresults < ActiveRecord::Migration
     create_table :keyresults do |t|
       t.belongs_to :objective
       t.integer :number
+      t.integer :goal
       t.string :unit
       t.string :action
 

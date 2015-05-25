@@ -17,6 +17,7 @@ require 'faker'
     5.times do
       Keyresult.create(
         objective_id: objective.id,
+        goal: rand(11..20),
         number: rand(1..10),
         unit: Faker::Lorem.word,
         action: Faker::Lorem.sentence

@@ -5,12 +5,17 @@ get '/login' do
 end
 
 post '/login' do
-  user = User.find_by_email(params[:email])
-  if user.password == params[:password]
-    session[:email] = user.email
-    redirect '/'
+  if user = User.find_by_email(params[:email])
+    if user.password == params[:password]
+      session[:email] = user.email
+      redirect '/'
+    else
+      @error_message = "Password incorrect."
+      erb :login
+    end
   else
-    redirect '/login'
+    @error_message = "User email not found."
+    erb :login
   end
 end
 

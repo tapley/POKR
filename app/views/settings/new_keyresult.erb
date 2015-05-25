@@ -1,0 +1,17 @@
+
+<form action="/settings/keyresults/new" method="POST">
+  <table id="content">
+    <tr><td class="title">Add key result</td></tr>
+    <tr><td>
+      <select name="objective_id">
+        <% @objectives.each do |objective| %>
+        <option value="<%= objective.id %>"><%= objective.description %></option>
+        <% end %>
+      </select>
+    </td></tr>
+    <tr><td><input class="new_key_result" name="goal" type="text" value="Goal" >
+    <input class="new_key_result" name="unit" type="text" value="Units" >
+    <input class="new_key_result" name="action" type="text" value="Action"></td></tr>
+    <tr><td><input class="submit" type="submit" value="Update objectives"></td></tr>
+  </table>
+</form>
